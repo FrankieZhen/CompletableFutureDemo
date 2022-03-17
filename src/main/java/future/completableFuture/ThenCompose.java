@@ -6,6 +6,11 @@ import java.util.concurrent.CompletableFuture;
 
 public class ThenCompose {
     public static void main(String[] args) {
+        thenCompose();
+//        applyAsync();
+    }
+
+    private static void thenCompose() {
         JucTool.printTimeAndThread("进入餐厅");
         JucTool.printTimeAndThread("点了 番茄炒蛋 + 一碗米饭");
 
