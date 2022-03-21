@@ -35,7 +35,7 @@ public class Dish {
         long startTime = System.currentTimeMillis();
         long result = 0;
         // 只是用来模拟耗时操作，没有任何意义
-        for (int i = 0; i < Integer.MAX_VALUE / 3; i++) {
+        for (int i = 0; i < 100000000; i++) {
             result += i * i % 3;
         }
         return System.currentTimeMillis() - startTime;

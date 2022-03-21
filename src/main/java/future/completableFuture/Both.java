@@ -6,8 +6,8 @@ import java.util.concurrent.CompletableFuture;
 
 public class Both {
     public static void main(String[] args) {
-//        runAfterBothTask();
-        thenAcceptBothTask();
+        runAfterBothTask();
+//        thenAcceptBothTask();
     }
 
     public static void runAfterBothTask() {

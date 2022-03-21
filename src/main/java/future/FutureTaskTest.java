@@ -14,11 +14,8 @@ import java.util.stream.IntStream;
  */
 public class FutureTaskTest {
     public static void main(String[] args) {
-
-
+//        Task1();
         Task2();
-
-
     }
 
     public static void Task1() {
