@@ -11,6 +11,7 @@ public class AllOf {
     public static void main(String[] args) {
         allOf();
 //        forEachFutureTask();
+//        countDownLatch();
     }
 
     public static void allOf() {
@@ -46,13 +47,34 @@ public class AllOf {
 
         futureTasks.forEach(ft -> {
             try {
-                System.out.println(ft.get());
+//                System.out.println(ft.get());
+                ft.get();
             } catch (InterruptedException e) {
                 e.printStackTrace();
             } catch (ExecutionException e) {
                 e.printStackTrace();
             }
         });
+        JucTool.printTimeAndThread("菜都做好了，上桌 " + (System.currentTimeMillis() - startTime));
+        executorService.shutdown();
+    }
+
+    public static void countDownLatch() {
+        JucTool.printTimeAndThread("进餐厅点菜");
+        long startTime = System.currentTimeMillis();
+        ExecutorService executorService = Executors.newCachedThreadPool();
+        final CountDownLatch countDownLatch = new CountDownLatch(10);
+        IntStream.rangeClosed(1, 10).forEach(i -> executorService.submit(() -> {
+            JucTool.printTimeAndThread("正在做第" + i + "道菜");
+            JucTool.sleepMillis(1000);
+            countDownLatch.countDown();
+        }));
+
+        try {
+            countDownLatch.await();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         JucTool.printTimeAndThread("菜都做好了，上桌 " + (System.currentTimeMillis() - startTime));
         executorService.shutdown();
     }

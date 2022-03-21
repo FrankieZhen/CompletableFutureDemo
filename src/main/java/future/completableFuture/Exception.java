@@ -4,7 +4,7 @@ import future.JucTool;
 
 import java.util.concurrent.CompletableFuture;
 
-public class ExceptionallyHandleComplete {
+public class Exception {
     public static void main(String[] args) {
 //        exceptionallyTask();
 //        handleTask();
